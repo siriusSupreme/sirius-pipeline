@@ -4,7 +4,7 @@ namespace Sirius\Pipeline;
 
 use Closure;
 use RuntimeException;
-use Sirius\Container\Contracts\Container;
+use Sirius\Container\Container;
 use Sirius\Pipeline\Contracts\Pipeline as PipelineContract;
 
 class Pipeline implements PipelineContract
@@ -12,7 +12,7 @@ class Pipeline implements PipelineContract
     /**
      * The container implementation.
      *
-     * @var \Sirius\Container\Contracts\Container
+     * @var \Sirius\Container\Container
      */
     protected $container;
 
@@ -40,13 +40,12 @@ class Pipeline implements PipelineContract
     /**
      * Create a new class instance.
      *
-     * @param  \Sirius\Container\Contracts\Container|null $container
+     * @param  \Sirius\Container\Container|null $container
      *
-     * @return void
      */
     public function __construct(Container $container = null)
     {
-        $this->container = $container;
+        $this->container = $container?? Container::getInstance();
     }
 
     /**
@@ -173,7 +172,7 @@ class Pipeline implements PipelineContract
     /**
      * Get the container instance.
      *
-     * @return \Sirius\Container\Contracts\Container
+     * @return \Sirius\Container\Container
      * @throws \RuntimeException
      */
     protected function getContainer()

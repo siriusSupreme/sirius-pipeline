@@ -3,7 +3,7 @@
 namespace Sirius\Pipeline;
 
 use Closure;
-use Sirius\Container\Contracts\Container;
+use Sirius\Container\Container;
 use Sirius\Pipeline\Contracts\Hub as HubContract;
 
 class Hub implements HubContract
@@ -11,7 +11,7 @@ class Hub implements HubContract
     /**
      * The container implementation.
      *
-     * @var \Sirius\Container\Contracts\Container|null
+     * @var \Sirius\Container\Container|null
      */
     protected $container;
 
@@ -25,13 +25,13 @@ class Hub implements HubContract
     /**
      * Create a new Hub instance.
      *
-     * @param  \Sirius\Container\Contracts\Container|null $container
+     * @param  \Sirius\Container\Container|null $container
      *
      * @return void
      */
     public function __construct(Container $container = null)
     {
-        $this->container = $container;
+        $this->container = $container??Container::getInstance();
     }
 
     /**
